@@ -24,7 +24,7 @@ jobs:
 
     - name: Lint with flake8
       run: |
-        venv/bin/flake8 --max-line-length=88
+        ./.venv/bin/flake8 --max-line-length=88
 
     - name: Test with pytest
       run: |
