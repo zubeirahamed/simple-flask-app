@@ -16,16 +16,16 @@ pipeline {
       steps {
         sh 'python3 -m venv .venv'
         sh 'chmod -R 755 .venv'
-        sh 'chown -R $USER:$USER .venv'
+        sh 'chown -R jenkins:jenkins .venv'
         sh 'chmod +x .venv/bin/pip'
-        sh '. .venv/bin/activate && .venv/bin/pip install --break-system-packages -r requirements.txt'
+        sh '. .venv/bin/activate && .venv/bin/python -m pip install --break-system-packages -r requirements.txt'
       }
     }
 
     stage('Lint and Test') {
       steps {
-        sh '. .venv/bin/activate && .venv/bin/flake8 --max-line-length=88'
-        sh '. .venv/bin/activate && .venv/bin/pytest'
+        sh '. .venv/bin/activate && .venv/bin/python -m flake8 --max-line-length=88'
+        sh '. .venv/bin/activate && .venv/bin/python -m pytest'
       }
     }
 
