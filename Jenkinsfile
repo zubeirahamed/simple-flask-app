@@ -15,14 +15,14 @@ pipeline {
     stage('Install Dependencies') {
       steps {
         sh 'python3 -m venv .venv'
-        sh '. .venv/bin/activate && pip install -r requirements.txt'
+        sh '. .venv/bin/activate && pip install --break-system-packages -r requirements.txt'
       }
     }
 
     stage('Lint and Test') {
       steps {
-        sh '.venv/bin/flake8 --max-line-length=88'
-        sh '.venv/bin/pytest'
+        sh '. .venv/bin/activate && .venv/bin/flake8 --max-line-length=88'
+        sh '. .venv/bin/activate && .venv/bin/pytest'
       }
     }
 
