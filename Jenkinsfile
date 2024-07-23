@@ -15,20 +15,20 @@ pipeline {
     stage('Install Dependencies') {
       steps {
         sh 'python3 -m venv .venv'
-        sh 'sudo .venv/bin/activate && pip install -r requirements.txt'
+        sh '. .venv/bin/activate && pip install -r requirements.txt'
       }
     }
 
     stage('Lint and Test') {
       steps {
-        sh 'venv/bin/flake8 --max-line-length=88'
-        sh 'venv/bin/pytest'
+        sh '.venv/bin/flake8 --max-line-length=88'
+        sh '.venv/bin/pytest'
       }
     }
 
     stage('Build Docker Image') {
       steps {
-        sh 'docker build -t python/simple-flask-app .'
+        sh 'docker build -t zubeirahamed/simple-flask-app .'
       }
     }
 
@@ -49,7 +49,7 @@ pipeline {
           ssh -o StrictHostKeyChecking=no ubuntu@100.25.162.30 '
             docker pull zubeirahamed/simple-flask-app
             docker stop $(docker ps -a -q) || true
-            docker run -d -p 80:5000 python/simple-flask-app
+            docker run -d -p 80:5000 zubeirahamed/simple-flask-app
           '
           '''
         }
