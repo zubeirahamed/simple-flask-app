@@ -39,7 +39,7 @@ pipeline {
       steps {
         script {
           docker.withRegistry('https://index.docker.io/v1/', DOCKER_CREDENTIALS_ID) {
-            sh 'docker push zubeirahamedssma909@gmail.com/simple-flask-app'
+            sh 'docker push zubeirahamed/simple-flask-app'
           }
         }
       }
