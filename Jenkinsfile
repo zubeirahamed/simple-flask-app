@@ -15,6 +15,7 @@ pipeline {
     stage('Install Dependencies') {
       steps {
         sh 'python3 -m venv .venv'
+        sh 'chmod -R 755 .venv'
         sh '. .venv/bin/activate && .venv/bin/pip install --break-system-packages -r requirements.txt'
       }
     }
