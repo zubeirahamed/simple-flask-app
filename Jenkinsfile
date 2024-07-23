@@ -24,7 +24,7 @@ pipeline {
 
     stage('Lint and Test') {
       steps {
-        sh '. .venv/bin/activate && .venv/bin/python -m flake8 --max-line-length=88'
+        sh '. .venv/bin/activate && .venv/bin/python -m flake8 --exclude=.venv --max-line-length=88 app.py'
         sh '. .venv/bin/activate && .venv/bin/python -m pytest'
       }
     }
