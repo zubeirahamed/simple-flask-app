@@ -11,11 +11,14 @@ This is a simple Flask application deployed using a CI/CD pipeline with Jenkins.
    git clone https://github.com/yourusername/simple-flask-app.git
    cd simple-flask-app
 2. Set up a virtual environment:
+   ```bash
    python3 -m venv .venv
    . .venv/bin/activate
-3. Install dependencies:
+4. Install dependencies:
+   ```bash
    pip install -r requirements.txt
-4. Run the application:
+6. Run the application:
+   ```bash
    python app.py
 
 ## How to Build and Run the Docker Container
