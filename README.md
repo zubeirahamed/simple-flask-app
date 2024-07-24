@@ -25,10 +25,13 @@ This is a simple Flask application deployed using a CI/CD pipeline with Jenkins.
 
 1. Create a Dockerfile (added in repository)
 2. Build the Docker image:
+   ```bash
    docker build -t python/simple-flask-app .
-3. Run the Docker container:
+4. Run the Docker container:
+   ```bash
    docker run -p 80:5000 python/simple-flask-app
-4. Access the application at:
+6. Access the application at:
+   ```bash
    http://localhost:80
 
 ## CI/CD Pipeline with Jenkins
@@ -48,8 +51,9 @@ The CI/CD pipeline is configured using Jenkins. It includes the following steps:
 2. Start Jenkins:
    After installation, start Jenkins
    for Linux:
+   ```bash
    sudo systemctl start jenkins
-3. Access Jenkins:
+4. Access Jenkins:
    Open your web browser and go to http://localhost:8080 (or the public IP address if installed on a remote server).
 
 ## Follow the setup instructions and install the suggested plugins.
