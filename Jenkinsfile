@@ -49,7 +49,7 @@ pipeline {
       steps {
         sshagent(['ec2-ssh-key']) {
           sh '''
-          ssh -o StrictHostKeyChecking=no ubuntu@54.167.179.173 '
+          ssh -o StrictHostKeyChecking=no ubuntu@34.203.247.252 '
             docker pull zubeirahamed/simple-flask-app
             docker stop $(docker ps -a -q) || true
             docker run -d -p 80:5000 zubeirahamed/simple-flask-app
